@@ -7,7 +7,15 @@ const configFile = LoadResourceFile(GetCurrentResourceName(), 'config.json')
 
 const configObj = JSON.parse(configFile)
 const apikey = configObj.apikey
-if (apikey == 'apikey' || apikey == '') { console.log('API-avainta ei ole asetettu.'); }
+
+on("onResourceStarting", (resourceName) => {
+    if (resourceName == GetCurrentResourceName()) {
+        if (apikey == 'apikey' || apikey == '') { 
+            console.log('API-avainta ei ole asetettu.'); 
+            CancelEvent();
+        }
+    }
+});
 
 http.createServer(function (req, res) {
     const reqUrl = url.parse(req.url).pathname
