@@ -4,7 +4,6 @@ const url = require("url");
 const htmlFile = LoadResourceFile(GetCurrentResourceName(), 'web/index.html');
 const cssFile = LoadResourceFile(GetCurrentResourceName(), 'web/style.css');
 const jsFile = LoadResourceFile(GetCurrentResourceName(), 'web/script.js');
-const scriptFile = LoadResourceFile(GetCurrentResourceName(), 'src/sv_main.js');
 const configFile = LoadResourceFile(GetCurrentResourceName(), 'config.json');
 
 const configObj = JSON.parse(configFile);
@@ -21,10 +20,7 @@ http.createServer(function (req, res) {
         res.end(cssFile);
     } else if (reqUrl === '/web/script.js') {
         res.end(jsFile);
-    } else if (reqUrl === '/src/sv_main.js') {
-        res.end(scriptFile);
     }
 
 }).listen(50120);
 
-console.log('12')
