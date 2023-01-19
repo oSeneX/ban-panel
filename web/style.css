@@ -156,25 +156,18 @@ a:hover  {
     background-color: var(--navprimary);
     padding: 5em;
     display: none;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
-.server {
-    display: flex;
-    align-items: center;
-    color: white;
-    background-color: var(--navprimary);
+#player-list-search{
+    outline: none;
+    border: none;
     margin-bottom: 1rem;
-}
-
-.server:last-child {
-    margin-bottom: 0rem;
-}
-
-.servername {
-    font-size: 1.2rem;
+    height: 3em;
+    width: 25em;
+    color: #eeeeee;
+    font-weight: 500;
+    padding: 1em
 }
 
 #player-list {
