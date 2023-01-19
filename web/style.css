@@ -8,6 +8,14 @@
     --accent: rgb(81, 113, 180);
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -27,8 +35,8 @@ body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 45px;
+    height: 25px;
     background: var(--navprimary);
     margin-right: 1em;
 }
@@ -54,8 +62,8 @@ body {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 18px;
+    width: 18px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -72,9 +80,9 @@ input:focus + .slider {
 }
   
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
 }
 
 .slider.round {
@@ -143,11 +151,11 @@ a:hover  {
     color: var(--accent);
 }
 
-.manage-bans-block {
+#manage-bans-block, #import-bans-block, #settings-block {
     margin: auto;
     background-color: var(--navprimary);
     padding: 5em;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -167,4 +175,27 @@ a:hover  {
 
 .servername {
     font-size: 1.2rem;
+}
+
+#player-list {
+    border-collapse: collapse;
+    width: 100%;
+    color: #eeeeee;
+}
+
+#player-list-wrapper {
+    max-height: 700px;
+    overflow: auto;
+}
+  
+#player-list td, #player-list th {
+    border: 2px solid var(--navprimary);
+    padding: 8px;
+}
+  
+#player-list th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--accent);
 }
