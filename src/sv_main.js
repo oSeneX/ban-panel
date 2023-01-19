@@ -7,17 +7,9 @@ const jsFile = LoadResourceFile(GetCurrentResourceName(), 'web/script.js');
 const configFile = LoadResourceFile(GetCurrentResourceName(), 'config.json');
 
 const configObj = JSON.parse(configFile);
-const apikey = configObj.apikey;
+var apikey = configObj.apikey;
 
-/* TODO
-on("onResourceStarting", (resourceName) => { 
-    if (resourceName == GetCurrentResourceName()) {
-        if (apikey == 'apikey' || apikey == '') { 
-            console.log('API-avainta ei ole asetettu.'); 
-            CancelEvent();
-        }
-    }
-});*/ 
+if (apikey == 'apikey' || apikey == '') apikey = false;
 
 http.createServer(function (req, res) {
     const reqUrl = url.parse(req.url).pathname
