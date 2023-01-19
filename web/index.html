@@ -10,10 +10,35 @@
     </head>
     <body>
         <div class="header">
-            <ul>
-                <li><a href="#"><i id="menu-icon" class="fa-solid fa-user"></i> <span>Hallinnoi porttikieltoja</span> </a></li>
+            <ul id="nav">
+                <li class="active"><a href="#"><i id="menu-icon" class="fa-solid fa-user"></i> <span>Hallinnoi porttikieltoja</span> </a></li>
                 <li><a href="#"><i id="menu-icon" class="fa-solid fa-gear"></i> <span>Asetukset</span> </a></li>
             </ul>
         </div>
+        <div class="manage-bans-block">
+            <div class="server">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <span class="servername">Palvelin 1</span>
+            </div>
+            <div class="server">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <span class="servername">Palvelin 2</span>
+            </div>
+            <div class="server">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <span class="servername">Palvelin 3</span>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="/web/script.js"></script>
     </body>
 </html>
