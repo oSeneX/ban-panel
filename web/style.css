@@ -5,7 +5,7 @@
     --navprimary: #222437;
     --btncolor: #1e1f21;
     --btnhover: #27282b;
-    --accent: rgb(81, 113, 180);
+    --accent: #5171b4;
 }
 
 *::-webkit-scrollbar {
@@ -30,6 +30,19 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
+}
+
+button {
+    font-weight: 500;
+    padding: 0.5vw;
+    background: var(--accent);
+    color: #eee;
+    border: none;
+    transition: .4s;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 .switch {
@@ -163,6 +176,7 @@ a:hover  {
 #nav > .active > a {
     background-color: #eeeeee;
     color: var(--accent);
+    border-left: var(--accent) solid 0.3vw;
 }
 
 #manage-bans-block, #player-notes-block, #import-bans-block, #settings-block {
