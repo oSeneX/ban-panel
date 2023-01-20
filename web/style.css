@@ -8,11 +8,11 @@
     --accent: rgb(81, 113, 180);
 }
 
-::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 15px;
 }
 
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: var(--accent);
 }
 
@@ -102,6 +102,15 @@ input:checked + .slider:before {
     background: var(--navprimary);
     display: flex;
     align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    background: var(--navprimary);
+    color: #eeeeee;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    font-size: 1.5vw;
 }
 
 ul {
@@ -140,7 +149,7 @@ li a {
 }
 
 i, span {
-    background-color: var(--navprimary)
+    background-color: transparent
 }
 
 a:hover  {
@@ -152,6 +161,7 @@ a:hover  {
 }
 
 #nav > .active > a {
+    background-color: #eeeeee;
     color: var(--accent);
 }
 
