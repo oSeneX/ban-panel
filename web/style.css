@@ -163,7 +163,7 @@ a:hover  {
     flex-direction: column;
 }
 
-#player-list-search{
+#player-list-search, #player-notes-search{
     outline: none;
     border: none;
     margin-bottom: 1rem;
