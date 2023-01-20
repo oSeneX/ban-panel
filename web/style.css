@@ -178,6 +178,7 @@ a:hover  {
     border-collapse: collapse;
     width: 100%;
     color: #eeeeee;
+    table-layout: auto;
 }
 
 #player-list-wrapper, #player-notes-wrapper {
@@ -197,4 +198,20 @@ a:hover  {
     padding-bottom: 12px;
     text-align: left;
     background-color: var(--accent);
+}
+
+#player-list th:nth-child(2), #player-list td:nth-child(2) {
+    min-width: 7vw;
+}
+
+#player-list th:nth-child(3), #player-list td:nth-child(3) {
+    min-width: 5vw;
+}
+
+#player-list th:nth-child(4), #player-list td:nth-child(4) {
+    min-width: 5vw;
+}
+
+#player-notes th:nth-child(2), #player-notes td:nth-child(2) {
+    min-width: 20vw;
 }
