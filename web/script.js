@@ -1,6 +1,6 @@
 var currentPage = '#manage-bans-block';
 
-const addPlayerToList = function(servername, playername, reason, time, steam, discord, rockstar, live, xbox) {
+const addPlayerToBanList = function(servername, playername, reason, time, steam, discord, rockstar, live, xbox) {
     $('#player-list tbody').append(`
     <tr>
         <td><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td>
@@ -13,6 +13,17 @@ const addPlayerToList = function(servername, playername, reason, time, steam, di
         <td>`+rockstar+`</td>
         <td>`+live+`</td>
         <td>`+xbox+`</td>
+    </tr>`);
+}
+
+const addPlayerNote = function(playername, note, steam, discord, rockstar) {
+    $('#player-notes tbody').append(`
+    <tr>
+        <td>`+playername+`</td>
+        <td>`+note+`</td>
+        <td>`+steam+`</td>
+        <td>`+discord+`</td>
+        <td>`+rockstar+`</td>
     </tr>`);
 }
 
@@ -32,7 +43,8 @@ $(function() {
     });
 
     $('#player-list').empty().append(`<thead><tr><th>Käytä</th><th>Palvelin</th><th>Pelaaja</th><th>Syy</th><th>Kesto</th><th>Steam</th><th>Discord</th><th>Rockstar</th><th>Live</th><th>Xbox</th></tr></thead><tbody></tbody>`);
-    
+    $('#player-notes').empty().append(`<thead><tr><th>Pelaaja</th><th>Huomiot</th><th>Steam</th><th>Discord</th><th>Rockstar</th></tr></thead><tbody></tbody>`);
+
     $('#player-list-search').keyup(function(){ //Search
         var search = $(this).val();
         $('table tbody tr').hide();
@@ -46,9 +58,11 @@ $(function() {
         }
     });
     /* Example bans*/
-    addPlayerToList('Example Roleplay', 'Pelaaja 1', 'Koodari', 1234, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
-    addPlayerToList('Example Roleplay', 'Pelaaja 2', 'Koodari', 654, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
-    addPlayerToList('Example Roleplay', 'Pelaaja 3', 'Koodari', 54, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
-    addPlayerToList('Example Roleplay', 'Pelaaja 4', 'Koodari', 745, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
+    addPlayerToBanList('Example Roleplay', 'Pelaaja 1', 'Koodari', 1234, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
+    addPlayerToBanList('Example Roleplay', 'Pelaaja 2', 'Koodari', 654, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
+    addPlayerToBanList('Example Roleplay', 'Pelaaja 3', 'Koodari', 54, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
+    addPlayerToBanList('Example Roleplay', 'Pelaaja 4', 'Koodari', 745, 'steam:4343', 'discord:4343', 'rockstar:4343', 'live:4343', 'xbox:4343');
+
+    addPlayerNote('NinjaRektaa', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:dsfsf', 'discord:5435345345', 'license:fgdgdfg453fed')
 });
 

@@ -98,7 +98,7 @@ input:checked + .slider:before {
     top: 0;
     left: 0;
     height: 100%;
-    width: 15vw;
+    width: 12vw;
     background: var(--navprimary);
     display: flex;
     align-items: center;
@@ -124,15 +124,19 @@ li a {
     font-weight: 500;
     background: none;
     color: #eeeeee;
-    padding: 1em 3em;
+    padding: 1em 2em;
     text-decoration: none;
     width: 100%;
     transition: 0.4s;
 }
 
+#nav-item {
+    font-size: 0.7vw;
+}
+
 #menu-icon {
     display: inline-block;
-    margin-right: 1em;
+    margin-right: 0.5em;
 }
 
 i, span {
@@ -151,7 +155,7 @@ a:hover  {
     color: var(--accent);
 }
 
-#manage-bans-block, #import-bans-block, #settings-block {
+#manage-bans-block, #player-notes-block, #import-bans-block, #settings-block {
     margin: auto;
     background-color: var(--navprimary);
     padding: 5em;
@@ -170,23 +174,25 @@ a:hover  {
     padding: 1em
 }
 
-#player-list {
+#player-list, #player-notes {
     border-collapse: collapse;
     width: 100%;
     color: #eeeeee;
 }
 
-#player-list-wrapper {
+#player-list-wrapper, #player-notes-wrapper {
     max-height: 700px;
+    width: 50vw;
     overflow: auto;
+    font-size: 0.7vw;
 }
   
-#player-list td, #player-list th {
+#player-list td, #player-list th, #player-notes td, #player-notes th {
     border: 2px solid var(--navprimary);
     padding: 8px;
 }
   
-#player-list th {
+#player-list th, #player-notes th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;

@@ -5,15 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="SeneX">
         <title>Ban Panel</title>
-        <link rel="stylesheet" href="/web/style.css"/>
+        <link rel="stylesheet" href="style.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     </head>
     <body>
         <div class="header">
             <ul id="nav">
-                <li class="active"><a href="#manage-bans-block"><i id="menu-icon" class="fa-solid fa-user"></i> <span>Hallinnoi porttikieltoja</span> </a></li>
-                <li ><a href="#import-bans-block"><i id="menu-icon" class="fa-solid fa-arrow-right"></i> <span>Vie porttikieltoja</span> </a></li>
-                <li><a href="#settings-block"><i id="menu-icon" class="fa-solid fa-gear"></i> <span>Asetukset</span> </a></li>
+                <li class="active" id="nav-item"><a href="#manage-bans-block"><i id="menu-icon" class="fa-solid fa-user"></i> <span>Hallinnoi porttikieltoja</span> </a></li>
+                <li id="nav-item"><a href="#player-notes-block"><i id="menu-icon" class="fa-solid fa-circle-info"></i> <span>Huomoita pelaajista</span> </a></li>
+                <li id="nav-item"><a href="#import-bans-block"><i id="menu-icon" class="fa-solid fa-arrow-right"></i> <span>Vie porttikieltoja</span> </a></li>
+                <li id="nav-item"><a href="#settings-block"><i id="menu-icon" class="fa-solid fa-gear"></i> <span>Asetukset</span> </a></li>
             </ul>
         </div>
         <div id="manage-bans-block">
@@ -22,9 +23,14 @@
                 <table id="player-list"></table>
             </div>
         </div>
+        <div id="player-notes-block">
+            <div id="player-notes-wrapper">
+                <table id="player-notes"></table>
+            </div>
+        </div>
         <div id="import-bans-block"></div>
         <div id="settings-block"></div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="/web/script.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
