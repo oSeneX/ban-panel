@@ -32,6 +32,35 @@ body {
     align-items: center;
 }
 
+.loginbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container, .register-container {
+    width: 30vw;
+    height: 30vh;
+    background: var(--navprimary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-container {
+    display: none;
+}
+
+#login-button {
+    width: 13vw;
+}
+
 button {
     font-weight: 500;
     padding: 0.5vw;
@@ -139,7 +168,8 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--navprimary)
+    background-color: transparent;
+    transition: 0.4s;
 }
 
 li a {
@@ -149,7 +179,23 @@ li a {
     padding: 1em 2em;
     text-decoration: none;
     width: 100%;
-    transition: 0.4s;
+}
+
+a {
+    background: transparent;
+    color: #eeeeee;
+}
+
+#error-text {
+    margin-top: 0.5vw;
+    font-size: 0.6vw;
+    color: #d91e1e;
+}
+
+#register-text {
+    margin-top: 0.5vw;
+    font-size: 0.6vw;
+    color: #bdbdbd;
 }
 
 #nav-item {
@@ -165,7 +211,7 @@ i, span {
     background-color: transparent
 }
 
-a:hover  {
+li:hover  {
     transform: scale(1.05);
 }
 
@@ -187,12 +233,12 @@ a:hover  {
     flex-direction: column;
 }
 
-#player-list-search, #player-notes-search{
+#login-input, #player-list-search, #player-notes-search{
     outline: none;
     border: none;
     margin-bottom: 1rem;
     height: 3em;
-    width: 25em;
+    width: 13vw;
     color: #eeeeee;
     font-weight: 500;
     padding: 1em
