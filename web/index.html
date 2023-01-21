@@ -10,18 +10,21 @@
     </head>
     <body>
         <div class="loginbg">
+            <div class="apikey-container"></div>
             <div class="login-container">
+                <h2>Kirjaudu</h2>
                 <input type='text' class="login-username" id='login-input' placeholder='Palvelimen nimi'>
                 <input type='password' class="login-password" id='login-input' placeholder='Salasana'>
                 <button id="login-button">Kirjaudu</button>
-                <span id="error-text"></span>
+                <span id="error-text-login"></span>
                 <span id="register-text">Tarvitsetko tilin? <a href="#" id="show-create-account">Luo tili</a></span>
             </div>
             <div class="register-container">
+                <h2>Luo tili</h2>
                 <input type='text' class="register-username" id='login-input' placeholder='Palvelimen nimi'>
                 <input type='password' class="register-password" id='login-input' placeholder='Salasana'>
                 <button id="register-button">Luo tili</button>
-                <span id="error-text"></span>
+                <span id="error-text-register"></span>
             </div>
         </div>
         <div class="header">

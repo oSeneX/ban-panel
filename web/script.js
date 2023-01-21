@@ -84,6 +84,10 @@ $('#login-button').click(function(){
         })
         .then((response) => response.json())
         .then(data => {
+            if (data.error) {
+                $('#error-text-login').empty().append('Virhe kirjautumisessa');
+                return;
+            }
             if (data.apikey) {
                 $('.loginbg').css('display', 'none');
                 fetch('http://localhost:8888/bans', {
@@ -102,7 +106,7 @@ $('#login-button').click(function(){
             }
         })
         .catch(error => {
-        
+            $('#error-text-login').empty().append('Virheellinen käyttäjätunnus tai salasana!')
         });
 });
 
@@ -118,7 +122,15 @@ $('#register-button').click(function(){
         body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(response => console.log(JSON.stringify(response)))
+    .then(data => {
+        if (data.error) {
+            $('#error-text-register').empty().append('Salasanan täytyy olla vähintään 8 merkkiä pitkä!'); 
+            return;
+        }
+        $('.register-container').css('display', 'none');
+        $('.apikey-container').css('display', 'flex');
+        $('.apikey-container').empty().append(`<span style="margin-bottom: 1vw; font-size: 2vw; font-weight: 500">API-avain:</span>\n<span style="margin-bottom: 1vw; font-size: 1.3vw;">`+data.apikey+`</span>\n<span>Syötä avain config.json -tiedostoon ja käynnistä palvelin uudelleen. \n\nHUOM: Mikäli hukkaat avaimesi, joudut luomaan uuden avaimen paneelin asetuksista.</span>`)
+    })
     .catch(error => {
         
     });

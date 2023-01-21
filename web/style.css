@@ -43,7 +43,7 @@ body {
     justify-content: center;
 }
 
-.login-container, .register-container {
+.login-container, .register-container, .apikey-container {
     width: 30vw;
     height: 30vh;
     background: var(--navprimary);
@@ -51,10 +51,15 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 2vw
 }
 
-.register-container {
+.register-container, .apikey-container {
     display: none;
+}
+
+.apikey-container {
+    color: #eee;
 }
 
 #login-button {
@@ -155,6 +160,12 @@ h1 {
     font-size: 1.5vw;
 }
 
+h2 {
+    background: transparent;
+    margin-bottom: 2vw;
+    color: #eeeeee;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -186,7 +197,7 @@ a {
     color: #eeeeee;
 }
 
-#error-text {
+#error-text-login, #error-text-register {
     margin-top: 0.5vw;
     font-size: 0.6vw;
     color: #d91e1e;
