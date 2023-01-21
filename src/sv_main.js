@@ -12,6 +12,10 @@ var apikey = configObj.apikey;
 if (apikey == 'apikey' || apikey == '') apikey = false;
 
 http.createServer(function (req, res) {
+    /*res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);*/
     const reqUrl = url.parse(req.url).pathname
     if(reqUrl == "/") {
         res.writeHead(200, {"Content-Type": "text/html"});

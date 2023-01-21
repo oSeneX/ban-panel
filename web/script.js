@@ -66,13 +66,65 @@ $(function() {
         searchFunc('player-notes', search)
     });
     /* Example bans & notes*/
-    addPlayerToBanList('Example Roleplay', 'Pelaaja 1', 'Koodari', 1234, 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
-    addPlayerToBanList('Example Roleplay', 'Pelaaja 2', 'Koodari', 654, 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
-    addPlayerToBanList('Example Roleplay', 'Pelaaja 3', 'Koodari', 54, 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
-    addPlayerToBanList('Example Roleplay', 'Pelaaja 4', 'Koodari', 745, 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
-
     addPlayerNote('SeneX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
     addPlayerNote('Henkilö 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
     addPlayerNote('Henkilö 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
 });
 
+$('#login-button').click(function(){ 
+    var username = $('.login-username').val();
+    var password = $('.login-password').val();
+    var requestData = {"server": username, "password": password}
+        fetch('http://localhost:8888/login', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then((response) => response.json())
+        .then(data => {
+            if (data.apikey) {
+                $('.loginbg').css('display', 'none');
+                fetch('http://localhost:8888/bans', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer '+data.apikey,
+                        'Content-type': 'application/json',
+                    }
+                })
+                .then((response) => response.json())
+                .then(data => {
+                    data.forEach(obj => {
+                        addPlayerToBanList(obj.server, 'Pelaaja', obj.reason, obj.expires, obj.identifiers.steam, obj.identifiers.discord, obj.identifiers.license, obj.identifiers.live, obj.identifiers.xbox);
+                    });
+                })
+            }
+        })
+        .catch(error => {
+        
+        });
+});
+
+$('#register-button').click(function(){ 
+    var username = $('.register-username').val();
+    var password = $('.register-password').val();
+    var data = {"server": username, "password": password}
+    fetch('http://localhost:8888/register', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(response => console.log(JSON.stringify(response)))
+    .catch(error => {
+        
+    });
+});
+
+$('#show-create-account').click(function(){ 
+    $('.login-container').css('display', 'none');
+    $('.register-container').css('display', 'flex');
+});
