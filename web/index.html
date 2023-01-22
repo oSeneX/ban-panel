@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     </head>
     <body>
-        <div class="loginbg">
+<!--        <div class="loginbg">
             <div class="apikey-container"></div>
             <div class="login-container">
                 <h2>Kirjaudu</h2>
@@ -26,7 +26,7 @@
                 <button id="register-button">Luo tili</button>
                 <span id="error-text-register"></span>
             </div>
-        </div>
+        </div>-->
         <div class="header">
             <h1>BAN PANEL</h1>
             <ul id="nav">
@@ -40,6 +40,11 @@
             <input type='text' id='player-list-search' placeholder='Hae...'>
             <div id="player-list-wrapper">
                 <table id="player-list"></table>
+            </div>
+            <br><br>    
+            <div class="buttons-group">
+                <button class="buttonm" onclick="allbanned()">Ota kaikki käyttöön</button>
+                <button class="buttonm2" onclick="clearbanned()">Poista kaikki käytöstä</button>
             </div>
         </div>
         <div id="player-notes-block">

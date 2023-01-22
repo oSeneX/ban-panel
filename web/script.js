@@ -39,12 +39,14 @@ const activeTab = function(value) {
 }
 
 const searchFunc = function(tableId, search) {
-    $('#'+tableId+' tbody tr').hide();
-    var len = $('#'+tableId+' tbody tr:not(.notfound) td:contains("'+search+'")').length;
-    if (len > 0) {
-        $('#'+tableId+' tr:not(.notfound) td:contains("'+search+'")').each(function(){
-            $(this).closest('tr').show();
-        });
+    const table = $(`#${tableId} tbody tr`);
+    table.hide();
+    const lowerSearch = search.toLowerCase();
+    const matchingCells = table.filter(function(){
+        return $(this).text().toLowerCase().includes(lowerSearch);
+    });
+    if (matchingCells.length > 0) {
+        matchingCells.closest('tr').show();
     }
 }
 
@@ -69,6 +71,16 @@ $(function() {
     addPlayerNote('SeneX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
     addPlayerNote('Henkilö 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
     addPlayerNote('Henkilö 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 5', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 6', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 7', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 8', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 9', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 10', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 11', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 12', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+    addPlayerNote('Henkilö 13', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
 });
 
 $('#login-button').click(function(){ 
@@ -140,3 +152,11 @@ $('#show-create-account').click(function(){
     $('.login-container').css('display', 'none');
     $('.register-container').css('display', 'flex');
 });
+
+function allbanned() {
+    console.log("Everything on!");
+}
+
+function clearbanned() {
+    console.log("Everything off!");
+}

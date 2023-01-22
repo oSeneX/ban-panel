@@ -9,7 +9,9 @@
 }
 
 *::-webkit-scrollbar {
-    width: 15px;
+    width: 0; 
+    /*This was 15 but this was one way to fix two scrollbars overlapping so i did this.
+    Ig you could also just move the vertical one to the right more but this works too.*/
 }
 
 *::-webkit-scrollbar-thumb {
@@ -30,6 +32,7 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .loginbg {
@@ -295,4 +298,31 @@ li:hover  {
 
 #player-notes th:nth-child(2), #player-notes td:nth-child(2) {
     min-width: 20vw;
+}
+
+.buttonm {
+    outline: none;
+    border: none;
+    margin-bottom: 1rem;
+    height: 3em;
+    width: 17.5em;
+    color: #eeeeee;
+    font-weight: 500;
+    padding: 1em;
+    margin-right: 490px;
+}
+
+.buttonm2 {
+    outline: none;
+    border: none;
+    margin-bottom: 1rem;
+    height: 3em;
+    width: 17.5em;
+    color: #eeeeee;
+    font-weight: 500;
+    padding: 1em;
+}
+
+.buttons-group{
+    background-color: var(--navprimary);
 }
