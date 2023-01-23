@@ -39,12 +39,14 @@ const activeTab = function(value) {
 }
 
 const searchFunc = function(tableId, search) {
-    $('#'+tableId+' tbody tr').hide();
-    var len = $('#'+tableId+' tbody tr:not(.notfound) td:contains("'+search+'")').length;
-    if (len > 0) {
-        $('#'+tableId+' tr:not(.notfound) td:contains("'+search+'")').each(function(){
-            $(this).closest('tr').show();
-        });
+    const table = $(`#${tableId} tbody tr`);
+    table.hide();
+    const lowerSearch = search.toLowerCase();
+    const matchingCells = table.filter(function(){
+        return $(this).text().toLowerCase().includes(lowerSearch);
+    });
+    if (matchingCells.length > 0) {
+        matchingCells.closest('tr').show();
     }
 }
 
