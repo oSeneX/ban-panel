@@ -7,17 +7,14 @@ const jsFile = LoadResourceFile(GetCurrentResourceName(), 'web/script.js');
 const configFile = LoadResourceFile(GetCurrentResourceName(), 'config.json');
 
 const configObj = JSON.parse(configFile);
-var apikey = configObj.apikey;
+const apikey = configObj.apikey;
+const port = configObj.port;
 
 if (apikey == 'apikey' || apikey == '') {
     console.log('API-avain puuttuu. Palvelin ei voi päivittää porttikieltoja.')
 };
 
 http.createServer(function (req, res) { //Create http server
-    /*res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);*/
     const reqUrl = url.parse(req.url).pathname
     if(reqUrl == "/") {
         res.writeHead(200, {"Content-Type": "text/html"});
@@ -28,7 +25,13 @@ http.createServer(function (req, res) { //Create http server
         res.end(jsFile);
     }
 
-}).listen(50120);
+}).listen(port);
+
+AddEventHandler("onResourceStart", function(resource) {
+    if (GetCurrentResourceName() === resource) {
+        console.log("Server started on http://127.0.0.1:"+port+"/");
+    }
+});
 
 on('playerConnecting', (name, setKickReason, deferrals) => {
     const bans = LoadResourceFile(GetCurrentResourceName(), 'bans.json');

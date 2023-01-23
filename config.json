@@ -1,3 +1,4 @@
 {
-    "apikey": "apikey"
+    "apikey": "apikey",
+    "port": "50120"
 }
