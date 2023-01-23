@@ -59,18 +59,19 @@ $(function() {
     $('#player-list').empty().append(`<thead><tr><th>Käytä</th><th>Palvelin</th><th>Pelaaja</th><th>Syy</th><th>Kesto</th><th>Steam</th><th>Discord</th><th>License</th><th>Live</th><th>Xbox</th></tr></thead><tbody></tbody>`);
     $('#player-notes').empty().append(`<thead><tr><th>Pelaaja</th><th>Huomiot</th><th>Steam</th><th>Discord</th><th>License</th><th>Live</th><th>Xbox</th></tr></thead><tbody></tbody>`);
 
-    $('#player-list-search').keyup(function(){ //Player list search
-        var search = $(this).val();
-        searchFunc('player-list', search)
-    });
-    $('#player-notes-search').keyup(function(){ //Player notes search
-        var search = $(this).val();
-        searchFunc('player-notes', search)
-    });
     /* Example bans & notes*/
     addPlayerNote('SeneX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
     addPlayerNote('Henkilö 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
     addPlayerNote('Henkilö 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi leo, mollis maximus finibus at, egestas eu ipsum. Aenean tempus faucibus bibendum. Aenean accumsan velit quis nisl elementum, ut euismod tellus convallis.', 'steam:11000011b9b5f17', 'discord:251683721500033024', 'license:4d90c53954e3944e22637b7a9c92e8565056361a', 'live:1829582852050677', 'xbl:2535459271415119');
+});
+
+$('#player-list-search').keyup(function(){ //Player list search
+    var search = $(this).val();
+    searchFunc('player-list', search)
+});
+$('#player-notes-search').keyup(function(){ //Player notes search
+    var search = $(this).val();
+    searchFunc('player-notes', search)
 });
 
 $('#login-button').click(function(){ 
