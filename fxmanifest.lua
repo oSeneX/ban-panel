@@ -2,9 +2,8 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'SeneX'
-description ''
-version '1.0.0'
+version '0.0.1'
 
 server_scripts {
-    'src/sv_main.js',
+    '**/sv_**.js',
 }
