@@ -29,7 +29,7 @@ http.createServer(function (req, res) { //Create a http server
 
 }).listen(port);
 
-on("onResourceStart", function(resource) {
+on("onResourceStart", (resource) => {
     if (resourceName === resource) {
         console.log("Server started on http://127.0.0.1:"+port+"/");
     }
@@ -58,4 +58,15 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
         }
     }
     deferrals.done()
-})
+});
+
+on("ban-panel:playerBanned", () => {
+    
+});
+
+on("txAdmin:events:playerBanned", (eventData) => { //Requires at least tx 5.0
+    const reason = eventData.reason;
+    const identifiers = eventData.targetIds;
+    const expiration = eventData.expiration;
+    const name = eventData.targetName;
+});
