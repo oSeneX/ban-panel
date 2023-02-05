@@ -36,27 +36,15 @@ on("onResourceStart", (resource) => {
 });
 
 on('playerConnecting', (name, setKickReason, deferrals) => {
-    const player = global.source;
     deferrals.update(`Tarkistetaan porttikieltoja`)
-    for (let i = 0; i < GetNumPlayerIdentifiers(player); i++) {
-        const identifier = GetPlayerIdentifier(player, i);
-        var steam, license, license2, discord, xbox, live, fivem = null;
-        if (identifier.includes('steam:')) {
-            steam = identifier;
-        } else if (identifier.includes('license:')) {
-            license = identifier;
-        } else if (identifier.includes('license2:')) {
-            license2 = identifier;
-        } else if (identifier.includes('discord:')) {
-            discord = identifier;
-        } else if (identifier.includes('xbox:')) {
-            xbox = identifier;
-        } else if (identifier.includes('live:')) {
-            live = identifier;
-        } else if (identifier.includes('fivem:')) {
-            fivem = identifier;
-        }
-    }
+    const player = global.source;
+    const steam = GetPlayerIdentifierByType(player, 'steam');
+    const license = GetPlayerIdentifierByType(player, 'license');
+    const license2 = GetPlayerIdentifierByType(player, 'license2');
+    const discord = GetPlayerIdentifierByType(player, 'discord');
+    const xbox = GetPlayerIdentifierByType(player, 'xbx');
+    const live = GetPlayerIdentifierByType(player, 'live');
+    const fivem = GetPlayerIdentifierByType(player, 'fivem');
     deferrals.done()
 });
 
