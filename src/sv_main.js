@@ -12,9 +12,7 @@ const configObj = JSON.parse(configFile);
 const apikey = configObj.apikey;
 const port = configObj.port;
 
-if (apikey == 'apikey' || apikey == '') {
-    console.log('API-avain puuttuu. Palvelin ei voi päivittää porttikieltoja.')
-};
+if (apikey == 'apikey' || apikey == '') console.log('API-avain puuttuu. Palvelin ei voi päivittää porttikieltoja.');
 
 http.createServer(function (req, res) { //Create a http server
     const reqUrl = url.parse(req.url).pathname
@@ -31,7 +29,7 @@ http.createServer(function (req, res) { //Create a http server
 
 on("onResourceStart", (resource) => {
     if (resourceName === resource) {
-        console.log("Server started on http://127.0.0.1:"+port+"/");
+        console.log("Paneeli käynnisttetty osoitteessa: http://127.0.0.1:"+port+"/");
     }
 });
 
